@@ -75,7 +75,8 @@ static int testProcess(const std::vector<std::string> & input){
     std::vector<std::string> a(input);
     std::vector<char*> v;
     for (auto & s : a) v.push_back(&s[0]);
-    return(ict::options::process(v.size(),&v[0]));
+    v.push_back(nullptr);
+    return(ict::options::process(a.size(),&v[0]));
 }
 std::string opcja1("ala,ma,kota");
 ict::options::single<ict::options::suboptions<opcja1>> subparam1("moplf","","ala=nic","Opis subparam1");

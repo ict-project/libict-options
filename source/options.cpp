@@ -276,7 +276,8 @@ static int testProcess(const std::vector<std::string> & input){
     std::vector<std::string> a(input);
     std::vector<char*> v;
     for (auto & s : a) v.push_back(&s[0]);
-    return(ict::options::process(v.size(),&v[0]));
+    v.push_back(nullptr);
+    return(ict::options::process(a.size(),&v[0]));
 }
 ict::options::counter param1("cfj","ala ma kota","5","Opis param1 (licznik domyślnie ustawiony na 5).");
 ict::options::counter param2("ush","brak kotow","","Opis param2 (licznik bez domyślnej wartości).");
